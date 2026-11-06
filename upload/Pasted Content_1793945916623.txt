@@ -1,0 +1,2348 @@
+# PLACEMENTPRO AI — ULTIMATE MASTER DEVELOPMENT PROMPT
+
+## THE AI-POWERED ENGINEERING CAREER, SKILLS, INDUSTRY READINESS AND PLACEMENT OPERATING SYSTEM
+
+**Project codename:** PlacementPro AI  
+**Product category:** Enterprise SaaS / EdTech / HRTech / AI Career Intelligence  
+**Primary market:** India initially, with international expansion capability.  
+**Target audience:** Engineering students, universities, colleges, placement departments, faculty, alumni, recruiters, employers and training organizations.
+
+---
+
+# PART 1 — PRODUCT VISION
+
+You are acting as a complete senior software development organization consisting of:
+
+- Product architect.
+- SaaS architect.
+- UI/UX designer.
+- Frontend engineer.
+- Backend engineer.
+- Database architect.
+- AI/ML engineer.
+- Engineering education specialist.
+- Placement and recruitment specialist.
+- Security engineer.
+- QA engineer.
+- DevOps engineer.
+
+Your task is to design, architect and implement a complete, modern, scalable, production-oriented SaaS platform called **PlacementPro AI**.
+
+Do not build an ordinary placement website.
+
+Build a unified ecosystem that bridges the gap between engineering education and industry employment.
+
+The platform must support students from every engineering discipline, not just Computer Science.
+
+The central mission is:
+
+**Every engineering student should be able to enter the platform, understand their current capabilities, identify their career goals, learn missing skills, practice engineering concepts, complete practical projects, demonstrate verified abilities, prepare for recruitment and access suitable employment opportunities.**
+
+The platform should serve students from first year through graduation and continue supporting their careers after placement.
+
+The platform must combine:
+
+1. Engineering learning management.
+2. Complete branch-wise academic question bank.
+3. Aptitude and reasoning preparation.
+4. Programming and technical skill development.
+5. AI Placement Copilot.
+6. Adaptive learning.
+7. AI mock interviews.
+8. Company placement simulator.
+9. Resume and portfolio builder.
+10. Industry project marketplace.
+11. Virtual engineering laboratories.
+12. Skill-gap detection.
+13. Engineering Skill Digital Twin.
+14. Proof-of-Skill Passport.
+15. Career intelligence.
+16. Recruitment management.
+17. Alumni and mentorship network.
+18. College placement analytics.
+19. Multi-college SaaS infrastructure.
+20. Enterprise subscription and administration.
+
+All these modules must work together through one unified student profile, skill graph, academic hierarchy and career intelligence engine.
+
+---
+
+# PART 2 — PRODUCT ARCHITECTURE AND USER ROLES
+
+Create a modular, multi-tenant architecture.
+
+## 2.1 User roles
+
+Implement secure role-based authentication and authorization for:
+
+### 1. Student
+
+Students can:
+- Register and create profiles.
+- Select their college and university.
+- Select engineering branch and specialization.
+- Select semester and graduation year.
+- Enter academic history, CGPA and backlog information.
+- Select career goals.
+- Access learning paths.
+- Study branch-specific subjects.
+- Practice question banks.
+- Take assessments.
+- Use AI mentoring.
+- Complete practical projects.
+- Build resumes.
+- Participate in interviews.
+- Check job eligibility.
+- Apply for internships and jobs.
+- Connect with alumni.
+- Earn verified credentials.
+- Track job readiness.
+
+### 2. Super Admin
+
+- Control the complete SaaS platform.
+- Create and manage colleges.
+- Manage tenants.
+- Manage subscription plans.
+- Manage branches and subjects.
+- Configure AI services.
+- Manage question bank quality.
+- Manage platform users.
+- View platform-wide analytics.
+- Monitor usage and AI expenditure.
+- Configure security policies.
+- Manage integrations.
+
+### 3. College Admin
+
+- Manage institution profile.
+- Add departments and branches.
+- Manage students and faculty.
+- Configure academic years.
+- Configure syllabus versions.
+- Manage placement officers.
+- Manage institutional branding.
+- Manage college-specific placement rules.
+- Access college analytics.
+
+### 4. Placement Officer
+
+- Create placement drives.
+- Add company requirements.
+- Check eligibility.
+- Generate candidate shortlists.
+- Track recruitment stages.
+- Schedule interviews.
+- Send notifications.
+- Track offers and joining status.
+- Generate placement reports.
+
+### 5. Faculty / Trainer
+
+- Manage subjects.
+- Upload notes and learning resources.
+- Create questions.
+- Review AI-generated questions.
+- Create examinations.
+- Assign projects.
+- Evaluate practical work.
+- Monitor student performance.
+
+### 6. Recruiter / Employer
+
+- Create company profiles.
+- Publish verified job opportunities.
+- Configure eligibility requirements.
+- Search opted-in talent profiles.
+- Review verified skills.
+- Create recruitment assessments.
+- Shortlist candidates.
+- Manage recruitment stages.
+- Provide feedback.
+
+### 7. Alumni / Mentor
+
+- Create alumni profiles.
+- Share career journeys.
+- Offer mentorship.
+- Conduct mock interviews.
+- Review resumes.
+- Publish resources.
+- Guide students.
+
+### 8. Parent / Guardian (optional and student-controlled)
+
+- View authorized progress reports.
+- View learning progress.
+- Receive authorized academic notifications.
+- Never access private conversations, resumes or recruitment information without permission.
+
+### 9. Platform Support Team
+
+- Manage customer support requests.
+- Monitor platform incidents.
+- View authorized operational information.
+- Resolve tenant configuration problems.
+- Maintain support audit logs.
+
+## 2.2 Multi-tenancy requirements
+
+The system must support hundreds or thousands of colleges.
+
+Each tenant must have:
+- Independent administration.
+- Independent student access.
+- Configurable departments.
+- Custom syllabus.
+- Custom branding.
+- College-specific placements.
+- College analytics.
+- Configurable permissions.
+- Configurable integrations.
+
+Use strict tenant isolation at the database, backend and API layers.
+
+Never rely only on frontend filtering for tenant security.
+
+---
+
+# PART 3 — COMPLETE ENGINEERING BRANCH ECOSYSTEM
+
+Create a centralized branch management system.
+
+Support at minimum:
+
+1. Computer Science Engineering (CSE).
+2. Information Technology (IT).
+3. Electronics and Communication Engineering (ECE).
+4. Electrical and Electronics Engineering (EEE).
+5. Electrical Engineering (EE).
+6. Mechanical Engineering.
+7. Civil Engineering.
+8. Chemical Engineering.
+9. Biotechnology.
+10. Biomedical Engineering.
+11. Aerospace Engineering.
+12. Automobile Engineering.
+13. Production Engineering.
+14. Industrial Engineering.
+15. Metallurgical Engineering.
+16. Mining Engineering.
+17. Agricultural Engineering.
+18. Petroleum Engineering.
+19. Instrumentation and Control Engineering.
+20. Mechatronics Engineering.
+21. Robotics and Automation Engineering.
+22. Environmental Engineering.
+23. Marine Engineering.
+24. Food Technology.
+25. Textile Engineering.
+26. Polymer Engineering.
+27. Ceramic Engineering.
+28. Genetic Engineering.
+29. Other configurable engineering branches.
+
+Allow administrators to add new branches without changing source code.
+
+Each branch must support:
+- Multiple specializations.
+- Multiple university syllabuses.
+- Semester-wise subjects.
+- Core subjects.
+- Electives.
+- Prerequisite subjects.
+- Industry skills.
+- Practical laboratories.
+- Projects.
+- Software tools.
+- Interview preparation.
+- Job roles.
+- Certification pathways.
+
+Support different curricula for different universities and syllabus revisions.
+
+Do not assume all universities teach the same subject in the same semester.
+
+---
+
+# PART 4 — MASTER ENGINEERING SYLLABUS AND QUESTION BANK
+
+This is one of the highest-priority modules.
+
+Build a comprehensive, reusable academic content engine.
+
+## 4.1 Required hierarchy
+
+Implement:
+
+College / University
+→ Engineering Branch
+→ Specialization
+→ Academic Regulation
+→ Semester
+→ Subject
+→ Unit
+→ Topic
+→ Subtopic
+→ Learning Material
+→ Questions
+→ Answers
+→ Explanations
+→ Assessments.
+
+Every student must see the correct subjects based on their university, branch, academic regulation and semester.
+
+## 4.2 Question bank for all branches
+
+Include a structured subject catalogue.
+
+### CSE
+
+- Engineering Mathematics.
+- Programming in C.
+- C++ Programming.
+- Java Programming.
+- Python Programming.
+- Data Structures.
+- Algorithms.
+- Design and Analysis of Algorithms.
+- Object-Oriented Programming.
+- Operating Systems.
+- Database Management Systems.
+- Computer Networks.
+- Computer Organization.
+- Digital Logic Design.
+- Theory of Computation.
+- Compiler Design.
+- Software Engineering.
+- Web Technologies.
+- Computer Graphics.
+- Artificial Intelligence.
+- Machine Learning.
+- Data Science.
+- Cloud Computing.
+- Cybersecurity.
+- Cryptography.
+- Big Data.
+- Internet of Things.
+- Distributed Systems.
+- Software Testing.
+- DevOps.
+- System Design.
+- Mobile Application Development.
+
+### IT
+
+- Programming Fundamentals.
+- Data Structures.
+- Algorithms.
+- DBMS.
+- SQL.
+- Computer Networks.
+- Operating Systems.
+- Software Engineering.
+- Web Development.
+- Mobile Development.
+- Cloud Computing.
+- Information Security.
+- Network Administration.
+- Distributed Systems.
+- Data Analytics.
+- IT Infrastructure.
+- DevOps.
+- Enterprise Applications.
+
+### ECE
+
+- Engineering Mathematics.
+- Network Theory.
+- Electronic Devices and Circuits.
+- Analog Electronics.
+- Digital Electronics.
+- Signals and Systems.
+- Control Systems.
+- Electromagnetic Fields.
+- Communication Systems.
+- Analog Communication.
+- Digital Communication.
+- Microprocessors.
+- Microcontrollers.
+- VLSI Design.
+- CMOS Technology.
+- Semiconductor Devices.
+- Embedded Systems.
+- Digital Signal Processing.
+- Antennas.
+- Wireless Communication.
+- Optical Communication.
+- PCB Design.
+- Verilog.
+- SystemVerilog.
+- IoT.
+
+### EEE / EE
+
+- Circuit Analysis.
+- Electrical Machines.
+- DC Machines.
+- Transformers.
+- Induction Motors.
+- Synchronous Machines.
+- Power Systems.
+- Power Generation.
+- Transmission and Distribution.
+- Power Electronics.
+- Control Systems.
+- Electrical Measurements.
+- Electrical Instrumentation.
+- Switchgear and Protection.
+- High Voltage Engineering.
+- Electrical Drives.
+- Renewable Energy.
+- Electric Vehicles.
+- Smart Grids.
+- Power System Protection.
+
+### Mechanical Engineering
+
+- Engineering Mechanics.
+- Strength of Materials.
+- Engineering Materials.
+- Manufacturing Processes.
+- Machine Drawing.
+- Theory of Machines.
+- Machine Design.
+- Thermodynamics.
+- Fluid Mechanics.
+- Heat Transfer.
+- Refrigeration and Air Conditioning.
+- Internal Combustion Engines.
+- Power Plant Engineering.
+- Industrial Engineering.
+- Operations Research.
+- CAD/CAM.
+- CNC.
+- Finite Element Analysis.
+- Robotics.
+- Mechatronics.
+- Automobile Engineering.
+- Metrology.
+- Quality Control.
+- Production Planning.
+
+### Civil Engineering
+
+- Engineering Mechanics.
+- Strength of Materials.
+- Structural Analysis.
+- Reinforced Concrete Design.
+- Steel Structures.
+- Building Materials.
+- Concrete Technology.
+- Geotechnical Engineering.
+- Soil Mechanics.
+- Foundation Engineering.
+- Fluid Mechanics.
+- Hydraulics.
+- Hydrology.
+- Irrigation Engineering.
+- Environmental Engineering.
+- Water Supply.
+- Wastewater Engineering.
+- Transportation Engineering.
+- Highway Engineering.
+- Surveying.
+- Construction Management.
+- Estimation and Costing.
+- Building Planning.
+- Earthquake Engineering.
+- Remote Sensing.
+- GIS.
+
+### Chemical Engineering
+
+- Engineering Chemistry.
+- Chemical Process Calculations.
+- Chemical Engineering Thermodynamics.
+- Fluid Mechanics.
+- Mechanical Operations.
+- Heat Transfer.
+- Mass Transfer.
+- Chemical Reaction Engineering.
+- Process Control.
+- Instrumentation.
+- Plant Design.
+- Process Equipment Design.
+- Chemical Process Technology.
+- Industrial Safety.
+- Environmental Engineering.
+- Petroleum Refining.
+- Polymer Technology.
+- Separation Processes.
+- Process Simulation.
+- Aspen Plus.
+- Aspen HYSYS.
+
+### Other branches
+
+For every additional supported branch, create the same structured depth.
+
+Include:
+- Relevant engineering mathematics.
+- Core disciplinary fundamentals.
+- Design subjects.
+- Applied engineering.
+- Practical laboratory subjects.
+- Industry-specific tools.
+- Professional standards.
+- Safety concepts.
+- Technical interviews.
+- Industry case studies.
+
+Do not create empty subject categories and claim the syllabus is complete.
+
+## 4.3 Question types
+
+Support:
+
+1. Single-correct MCQ.
+2. Multiple-correct MCQ.
+3. Numerical problems.
+4. Fill in the blanks.
+5. True or false.
+6. Match the following.
+7. Assertion and reasoning.
+8. Short-answer questions.
+9. Long-answer questions.
+10. Coding problems.
+11. SQL problems.
+12. Diagram-based questions.
+13. Case studies.
+14. Scenario-based questions.
+15. Practical troubleshooting.
+16. Oral interview questions.
+17. Engineering design questions.
+18. Industrial calculation questions.
+19. Laboratory interpretation.
+20. Project-based evaluation.
+
+## 4.4 Question metadata
+
+Each question must contain:
+
+- Question ID.
+- Question text.
+- Branch.
+- University and syllabus version, where applicable.
+- Semester.
+- Subject.
+- Unit.
+- Topic.
+- Subtopic.
+- Question type.
+- Difficulty.
+- Options.
+- Correct answer.
+- Detailed explanation.
+- Step-by-step calculation.
+- Formula references.
+- Diagram or image.
+- Marks.
+- Negative marks.
+- Expected solving time.
+- Learning outcome.
+- Tags.
+- Source.
+- Verification status.
+- Created date.
+- Updated date.
+- Version history.
+
+## 4.5 Question quality and integrity
+
+Build an AI-assisted question generation and faculty review workflow.
+
+AI-generated questions must initially be labelled as drafts.
+
+Implement:
+- Answer validation.
+- Numerical calculation validation.
+- Duplicate detection.
+- Near-duplicate detection.
+- Explanation quality checks.
+- Reference validation.
+- Faculty approval.
+- Question reporting.
+- Version history.
+- Incorrect-question correction.
+- Source attribution.
+
+Support bulk import through CSV, JSON and structured documents.
+
+Support university syllabus PDF extraction, but require faculty approval before publishing extracted content.
+
+Create an initial useful sample question bank for every branch, with clear coverage statistics.
+
+Design for tens of thousands or millions of questions as the platform scales.
+
+---
+
+# PART 5 — UNIVERSAL PLACEMENT PREPARATION
+
+Create a separate common placement preparation system accessible to every engineering branch.
+
+## 5.1 Aptitude
+
+- Quantitative aptitude.
+- Number systems.
+- Percentages.
+- Profit and loss.
+- Ratios.
+- Averages.
+- Time and work.
+- Time, speed and distance.
+- Probability.
+- Permutations and combinations.
+- Algebra.
+- Geometry.
+- Data interpretation.
+- Statistics.
+
+## 5.2 Logical reasoning
+
+- Series.
+- Coding and decoding.
+- Blood relations.
+- Directions.
+- Seating arrangements.
+- Puzzles.
+- Syllogisms.
+- Statements and conclusions.
+- Analogies.
+- Logical deductions.
+- Data sufficiency.
+
+## 5.3 Verbal ability
+
+- Grammar.
+- Vocabulary.
+- Reading comprehension.
+- Sentence correction.
+- Para jumbles.
+- Error detection.
+- Business communication.
+- Email writing.
+
+## 5.4 Programming preparation
+
+For software-oriented career paths:
+- C.
+- C++.
+- Java.
+- Python.
+- Data Structures.
+- Algorithms.
+- Problem solving.
+- SQL.
+- Debugging.
+- Object-oriented programming.
+- Basic system design.
+- Web technologies.
+
+Students from non-CSE branches must also be able to access software career pathways.
+
+## 5.5 Core engineering preparation
+
+Provide branch-specific technical preparation for every discipline.
+
+Include:
+- Core fundamentals.
+- Technical MCQs.
+- Numerical problems.
+- Practical concepts.
+- Industry applications.
+- Technical interviews.
+- GATE-style practice where appropriate.
+- Company-specific assessments.
+
+---
+
+# PART 6 — AI PLACEMENT COPILOT
+
+Create a contextual AI career mentor.
+
+The AI must understand the student's:
+- Branch.
+- University.
+- Semester.
+- Academic history.
+- CGPA.
+- Backlogs.
+- Skills.
+- Projects.
+- Internships.
+- Assessments.
+- Learning history.
+- Career goals.
+- Target companies.
+- Location preferences.
+
+Capabilities:
+
+1. Career planning.
+2. Doubt solving.
+3. Subject explanations.
+4. Technical guidance.
+5. Daily study plans.
+6. Resume review.
+7. Project recommendations.
+8. Skill-gap detection.
+9. Interview preparation.
+10. Job recommendations.
+11. Company preparation.
+12. Learning recommendations.
+13. Performance summaries.
+14. Career switching guidance.
+
+Use a secure AI orchestration layer.
+
+Ground educational responses in approved academic resources using retrieval-augmented generation.
+
+Provide citations to source material where available.
+
+AI must distinguish verified content from generated suggestions.
+
+Never invent answers, company policies, placement eligibility or job availability.
+
+---
+
+# PART 7 — AI PERSONAL CAREER COUNCIL
+
+Create specialized AI mentors:
+
+- Career Strategist.
+- Technical Subject Tutor.
+- Aptitude Coach.
+- Interview Coach.
+- Communication Coach.
+- Resume Expert.
+- Industry Advisor.
+- Recruiter Mentor.
+- Project Mentor.
+- Learning Coach.
+
+All mentors should share authorized student context but maintain distinct roles.
+
+Provide chat history, follow-up questions and actionable recommendations.
+
+---
+
+# PART 8 — ADAPTIVE LEARNING ENGINE
+
+Build an adaptive learning system.
+
+Track mastery at the topic and subtopic level.
+
+Difficulty levels:
+- Beginner.
+- Easy.
+- Medium.
+- Hard.
+- Expert.
+
+Use:
+- Correctness.
+- Question difficulty.
+- Attempt history.
+- Response time.
+- Repeated mistakes.
+- Recency.
+- Revision history.
+
+Implement:
+- Dynamic question selection.
+- Weak-topic identification.
+- Spaced repetition.
+- Revision scheduling.
+- Personalized assessments.
+- Prerequisite recommendations.
+- Mastery tracking.
+
+Every student receives a personalized learning plan.
+
+Avoid equating high question volume with actual understanding.
+
+---
+
+# PART 9 — ENGINEERING SKILL DIGITAL TWIN
+
+Create a continuously updated digital skill profile.
+
+Track:
+
+- Academic mastery.
+- Technical knowledge.
+- Software tools.
+- Practical engineering skills.
+- Coding.
+- Design abilities.
+- Project completion.
+- Internship experience.
+- Communication.
+- Problem solving.
+- Interview performance.
+- Professional readiness.
+
+Every skill must include:
+- Proficiency level.
+- Evidence.
+- Assessment result.
+- Verification status.
+- Date evaluated.
+- Confidence.
+
+Show a visual skill map and skill development history.
+
+Distinguish self-reported, assessment-verified, faculty-verified and employer-verified skills.
+
+Allow students to download or share authorized profiles.
+
+---
+
+# PART 10 — PROOF-OF-SKILL PASSPORT
+
+Create a portable professional credential system.
+
+Students should be able to prove skills through:
+- Verified assessments.
+- Completed projects.
+- Faculty endorsements.
+- Practical simulations.
+- Internship evidence.
+- Technical interviews.
+- Certifications.
+
+Provide:
+- Shareable skill profile.
+- QR verification.
+- Signed credential records.
+- Credential expiry where relevant.
+- Revocation mechanism.
+- Consent-controlled sharing.
+
+Do not issue a verified credential based only on an unverified self-declaration.
+
+---
+
+# PART 11 — INDUSTRYSIM AND VIRTUAL ENGINEERING LABS
+
+Create an industry simulation ecosystem.
+
+### CSE / IT
+- Debug software.
+- Build APIs.
+- Design databases.
+- Deploy applications.
+- Analyze cybersecurity scenarios.
+- Solve algorithmic problems.
+
+### ECE
+- Design circuits.
+- Diagnose circuit failures.
+- Simulate digital logic.
+- Develop embedded systems.
+- Test microcontroller applications.
+
+### EEE
+- Analyze power systems.
+- Diagnose electrical faults.
+- Study electrical machines.
+- Design control systems.
+- Evaluate renewable energy systems.
+
+### Mechanical
+- CAD modelling.
+- Stress analysis.
+- Thermal analysis.
+- Manufacturing planning.
+- CNC programming.
+- Machine troubleshooting.
+
+### Civil
+- Structural design.
+- Soil analysis.
+- Construction estimation.
+- Surveying.
+- Transportation planning.
+- Concrete design exercises.
+
+### Chemical
+- Process calculations.
+- Heat exchanger analysis.
+- Mass transfer.
+- Reaction engineering.
+- Process optimization.
+- Plant safety scenarios.
+
+### Other branches
+Create equivalent practical simulations for all supported engineering disciplines.
+
+Each simulation must include:
+- Scenario.
+- Problem statement.
+- Objectives.
+- Constraints.
+- Available tools.
+- Input data.
+- Student workspace.
+- Submission.
+- Evaluation rubric.
+- Feedback.
+- Evidence record.
+
+Integrate existing simulation tools and sandboxed environments where appropriate.
+
+Never claim that an external engineering tool has been recreated if only an integration is available.
+
+---
+
+# PART 12 — COMPANY PLACEMENT SIMULATOR
+
+Simulate the complete recruitment journey:
+
+1. Eligibility screening.
+2. Quantitative aptitude.
+3. Logical reasoning.
+4. Verbal ability.
+5. Technical MCQs.
+6. Programming assessments.
+7. Branch-specific assessments.
+8. Group discussion.
+9. Technical interviews.
+10. Managerial interviews.
+11. HR interviews.
+
+Provide configurable recruitment templates.
+
+Support:
+- IT companies.
+- Semiconductor companies.
+- Electronics companies.
+- Manufacturing companies.
+- Construction companies.
+- Chemical industries.
+- Energy companies.
+- Automotive companies.
+- Core engineering organizations.
+
+Generate:
+- Stage-wise scores.
+- Time analysis.
+- Accuracy.
+- Feedback.
+- Weak-topic reports.
+- Improvement plans.
+- Attempt comparisons.
+
+Do not imply that passing a simulation guarantees selection.
+
+---
+
+# PART 13 — PLACEMENT ELIGIBILITY ENGINE
+
+Create a rule-based eligibility engine.
+
+Allow companies and placement officers to configure:
+
+- Branch restrictions.
+- Minimum CGPA.
+- Minimum percentage.
+- Active backlog restrictions.
+- Historical backlog restrictions.
+- Graduation year.
+- Required skills.
+- Certifications.
+- Experience.
+- Location.
+- Other criteria.
+
+Output:
+- Eligible.
+- Not eligible.
+- Needs verification.
+- Missing information.
+
+Explain every eligibility decision.
+
+Support authorized overrides with audit logs.
+
+Do not automatically reject candidates because information is missing.
+
+---
+
+# PART 14 — AI SKILL GAP DETECTOR AND CAREER FUTURE INTELLIGENCE
+
+Students can select target jobs.
+
+Examples:
+- Software Developer.
+- Data Analyst.
+- AI Engineer.
+- Cybersecurity Analyst.
+- Embedded Engineer.
+- VLSI Engineer.
+- Electrical Design Engineer.
+- Mechanical Design Engineer.
+- Production Engineer.
+- Civil Design Engineer.
+- BIM Engineer.
+- Chemical Process Engineer.
+- Quality Engineer.
+- Automation Engineer.
+
+Compare job requirements with actual student capabilities.
+
+Show:
+- Required skills.
+- Existing skills.
+- Missing skills.
+- Evidence.
+- Learning path.
+- Projects.
+- Certifications.
+- Recommended assessments.
+- Estimated effort.
+- Readiness status.
+
+Build career intelligence using current, sourced industry information.
+
+Track source dates and confidence.
+
+Do not present speculative career predictions as guaranteed facts.
+
+---
+
+# PART 15 — LIVE INDUSTRY CURRICULUM INTELLIGENCE
+
+Create an industry-to-academia feedback engine.
+
+Analyze:
+- University syllabus.
+- Subject content.
+- Company job descriptions.
+- Industry skill requirements.
+- Emerging technologies.
+- Employer feedback.
+
+Generate:
+- Outdated topic reports.
+- Missing skill reports.
+- New learning recommendations.
+- Practical training recommendations.
+- Suggested curriculum updates.
+- Faculty training recommendations.
+
+Allow college faculty to approve all proposed curriculum changes.
+
+Maintain source attribution and version history.
+
+---
+
+# PART 16 — DAILY CHALLENGES AND GAMIFICATION
+
+Create daily learning challenges.
+
+Categories:
+- Aptitude.
+- Reasoning.
+- Verbal.
+- Programming.
+- Core engineering.
+- Technical interviews.
+- Communication.
+- Industrial problem solving.
+
+Include:
+- Daily streaks.
+- Points.
+- Achievements.
+- Badges.
+- Weekly contests.
+- College leaderboards.
+- Branch leaderboards.
+- Challenge history.
+
+Reward learning, consistency and accuracy, not speed alone.
+
+---
+
+# PART 17 — AI INTERVIEW AND COMMUNICATION LAB
+
+Support:
+
+- Text interviews.
+- Voice interviews.
+- Technical interviews.
+- HR interviews.
+- Behavioral interviews.
+- Group discussions.
+- Spoken English.
+- Communication exercises.
+
+Provide feedback on:
+- Technical correctness.
+- Relevance.
+- Clarity.
+- Structure.
+- Reasoning.
+- Examples.
+- Communication.
+- Improvement over time.
+
+Use explainable evaluation criteria.
+
+Do not use facial emotion recognition or accent-based discrimination as hiring judgments.
+
+---
+
+# PART 18 — GROUP DISCUSSION ARENA
+
+Build multiplayer group discussion sessions.
+
+Support:
+- AI participants.
+- Real student participants.
+- College-wide discussions.
+- Cross-college discussions.
+- Topic selection.
+- Time limits.
+- Transcripts.
+- Moderator controls.
+- Feedback.
+
+Evaluate:
+- Argument quality.
+- Relevance.
+- Listening.
+- Evidence.
+- Collaboration.
+- Respectful participation.
+- Summarization.
+
+---
+
+# PART 19 — RESUME, PORTFOLIO AND PERSONAL BRAND
+
+Build a professional resume and portfolio suite.
+
+Features:
+- ATS-compatible templates.
+- Branch-specific resumes.
+- AI resume writing.
+- Resume auditing.
+- Grammar checking.
+- Project descriptions.
+- Internship descriptions.
+- Cover letters.
+- LinkedIn profile guidance.
+- Portfolio builder.
+- PDF export.
+- Version history.
+
+Never fabricate achievements, experience or certifications.
+
+---
+
+# PART 20 — PROJECT AND MICRO-INTERNSHIP MARKETPLACE
+
+Create a marketplace for real industry projects.
+
+Allow verified companies, startups, laboratories and faculty to publish:
+- Micro-internships.
+- Technical assignments.
+- Research projects.
+- Industrial challenges.
+- Remote projects.
+- Engineering design tasks.
+
+Students can:
+- Discover projects.
+- Apply.
+- Form teams.
+- Submit deliverables.
+- Receive feedback.
+- Obtain verified work records.
+
+Every project must have:
+- Description.
+- Prerequisites.
+- Branch.
+- Required skills.
+- Deliverables.
+- Timeline.
+- Evaluation criteria.
+- Mentor.
+- Completion status.
+
+---
+
+# PART 21 — REVERSE HIRING AND TALENTGRAPH
+
+Create a consent-based talent discovery marketplace.
+
+Companies can search opted-in students based on:
+- Engineering branch.
+- Skills.
+- Verified projects.
+- Assessment performance.
+- Internship experience.
+- Graduation year.
+- Location.
+- Job interests.
+
+Allow recruiters to:
+- Search candidates.
+- Invite candidates.
+- Publish challenges.
+- Request interviews.
+- Provide feedback.
+
+Create TalentGraph to connect:
+- Students.
+- Alumni.
+- Recruiters.
+- Mentors.
+- Projects.
+- Colleges.
+- Verified skills.
+
+Protect private student information by default.
+
+---
+
+# PART 22 — ALUMNI AND MENTORSHIP NETWORK
+
+Implement:
+- Alumni verification.
+- Alumni profiles.
+- Mentorship requests.
+- Mentor discovery.
+- Resume reviews.
+- Mock interviews.
+- Career sessions.
+- Placement experience sharing.
+- Alumni achievements.
+- Reporting and moderation.
+
+Allow mentors to set availability and participation preferences.
+
+---
+
+# PART 23 — CROSS-COLLEGE COLLABORATION
+
+Allow students from different colleges and engineering branches to work together.
+
+Features:
+- Team formation.
+- Skill-based teammate discovery.
+- Project workspaces.
+- Shared files.
+- Task management.
+- Mentor assignment.
+- Peer assessment.
+- Project showcase.
+- Competition participation.
+
+Example interdisciplinary teams:
+- CSE + ECE: IoT.
+- Mechanical + EEE: Electric vehicles.
+- Civil + CSE: Smart cities.
+- Chemical + Mechanical: Process optimization.
+
+---
+
+# PART 24 — PLACEMENT OFFICER AI AUTOPILOT
+
+Create an intelligent administrative assistant.
+
+Capabilities:
+- Eligibility screening.
+- Proposed candidate shortlists.
+- Missing-document detection.
+- Placement reminders.
+- Recruitment scheduling.
+- Interview tracking.
+- Offer tracking.
+- Joining status.
+- Placement report generation.
+- Student intervention recommendations.
+
+All consequential actions must require appropriate authorization.
+
+Maintain complete audit logs.
+
+---
+
+# PART 25 — JOBS, INTERNSHIPS AND CAREER OPPORTUNITIES
+
+Create:
+- Job portal.
+- Internship portal.
+- Apprenticeship listings.
+- Government job information.
+- GATE and postgraduate pathways.
+- Research opportunities.
+- Scholarships.
+- Competitions.
+- Startup opportunities.
+- Freelance opportunities.
+
+Only display opportunities with a valid source and current verification status.
+
+Track:
+- Job source.
+- Posting date.
+- Expiry.
+- Employer verification.
+- Eligibility.
+- Application link.
+- Application status.
+
+Never invent live openings or recruitment statistics.
+
+---
+
+# PART 26 — CAREER RESILIENCE
+
+Support multiple career pathways.
+
+- Core engineering employment.
+- IT employment.
+- Government engineering careers.
+- GATE.
+- Higher education.
+- Research.
+- Entrepreneurship.
+- Technical consulting.
+- Freelancing.
+- Apprenticeships.
+- Technical sales.
+- International opportunities.
+
+Allow students to change career goals and reuse existing skills.
+
+---
+
+# PART 27 — PLACEMENT AND INSTITUTIONAL ANALYTICS
+
+### Student dashboard
+
+- Job readiness.
+- Subject mastery.
+- Skill graph.
+- Assessment results.
+- Project progress.
+- Resume readiness.
+- Applications.
+- Interview performance.
+- Placement status.
+
+### Faculty dashboard
+
+- Student performance.
+- Subject-level weaknesses.
+- Topic-level weaknesses.
+- Question accuracy.
+- Assignment progress.
+- Course completion.
+
+### Placement officer dashboard
+
+- Eligible students.
+- Registered students.
+- Students appearing.
+- Shortlisted students.
+- Selected students.
+- Offers.
+- Company-wise recruitment.
+- Branch-wise placement rates.
+
+### College administration dashboard
+
+- Branch-wise outcomes.
+- Academic readiness.
+- Learning engagement.
+- Curriculum gaps.
+- Company relationships.
+- Placement trends.
+- Institutional comparisons.
+
+### Super Admin dashboard
+
+- Number of colleges.
+- Total students.
+- Active users.
+- Subscription status.
+- Platform usage.
+- AI costs.
+- Storage usage.
+- System health.
+- Customer support.
+- Revenue and churn.
+
+Calculate placement metrics consistently and avoid double-counting multiple offers to one student.
+
+---
+
+# PART 28 — MULTILINGUAL AND REGIONAL LANGUAGE SUPPORT
+
+Initially support:
+- English.
+- Hindi.
+- Odia.
+- Bengali.
+- Telugu.
+- Tamil.
+- Kannada.
+- Malayalam.
+- Marathi.
+- Gujarati.
+
+Implement:
+- Multilingual UI.
+- Translated explanations.
+- AI tutoring.
+- Bilingual learning resources.
+- Regional-language voice input where supported.
+- Language switching.
+- User language preferences.
+
+Keep technical terminology, formulas, symbols and code intact.
+
+Provide reviewed translations for important academic material.
+
+---
+
+# PART 29 — ENTERPRISE SAAS AND COMMERCIAL INFRASTRUCTURE
+
+Build a commercial SaaS-ready system.
+
+## 29.1 White-label portals
+
+Each college can have:
+- Custom branding.
+- Custom logo.
+- Custom color system.
+- Custom domain.
+- College-specific dashboard.
+- College-specific notifications.
+
+## 29.2 Subscription plans
+
+Create configurable plans:
+
+**Free**
+- Basic learning.
+- Limited assessments.
+- Basic student profile.
+
+**Student Premium**
+- AI career mentor.
+- Advanced assessments.
+- Resume and interview tools.
+- Advanced analytics.
+
+**College Starter**
+- Student management.
+- Learning modules.
+- Basic placement analytics.
+
+**College Professional**
+- AI tools.
+- Placement management.
+- Advanced analytics.
+- Question bank administration.
+
+**College Enterprise**
+- White-label.
+- Custom integrations.
+- Advanced permissions.
+- Dedicated configuration.
+- Enterprise reporting.
+
+**Recruiter**
+- Candidate discovery.
+- Assessments.
+- Recruitment management.
+
+Allow administrators to configure all plans and prices.
+
+## 29.3 Billing
+
+Implement:
+- Subscription lifecycle.
+- Trial periods.
+- Invoices.
+- Payment history.
+- Renewal.
+- Cancellation.
+- Coupons.
+- Usage limits.
+- AI credit consumption.
+- Billing webhooks.
+
+Design for Indian payment providers such as Razorpay and international payment providers where applicable.
+
+Never store raw card information.
+
+## 29.4 Enterprise integrations
+
+Support:
+- College ERP.
+- LMS.
+- HRMS.
+- Google Workspace.
+- Microsoft 365.
+- Attendance systems.
+- Video meeting platforms.
+- Email services.
+- Public APIs.
+- Webhooks.
+
+Create a configurable integration framework.
+
+---
+
+# PART 30 — TECHNICAL STACK
+
+Use a modern, maintainable architecture.
+
+### Frontend
+
+- Next.js.
+- React.
+- TypeScript.
+- Tailwind CSS.
+- shadcn/ui.
+- Accessible component system.
+
+### Backend
+
+- Python FastAPI.
+- REST APIs.
+- Modular service architecture.
+- Background processing.
+- Server-side validation.
+
+### Database
+
+- PostgreSQL.
+- Supabase Auth or an equivalent secure authentication system.
+- Supabase Storage or compatible object storage.
+- Vector search for RAG and semantic search.
+
+### AI
+
+- OpenAI API.
+- Structured outputs.
+- Function/tool calling.
+- Retrieval-augmented generation.
+- Embeddings.
+- AI orchestration.
+- Prompt versioning.
+- Usage and cost tracking.
+
+### Other services
+
+- Sandboxed code execution.
+- Email provider.
+- Notification service.
+- Video hosting.
+- Monitoring.
+- Logging.
+- Error tracking.
+- Payment integration.
+
+Use a modular monolith initially.
+
+Do not create unnecessary microservices.
+
+All AI keys and sensitive credentials must remain on the server.
+
+---
+
+# PART 31 — DATABASE DESIGN
+
+Design normalized database schemas and migrations.
+
+Include tables for:
+
+### Identity and tenancy
+- users
+- roles
+- permissions
+- user_roles
+- colleges
+- college_settings
+- tenants
+- departments
+- academic_years
+
+### Academic structure
+- branches
+- specializations
+- universities
+- syllabus_versions
+- semesters
+- subjects
+- units
+- topics
+- subtopics
+- learning_outcomes
+- prerequisites
+- learning_resources
+
+### Question bank
+- questions
+- question_options
+- question_answers
+- question_tags
+- question_sources
+- question_reviews
+- question_versions
+- question_attempts
+- question_reports
+- test_sessions
+- test_results
+
+### Learning
+- courses
+- lessons
+- assignments
+- student_enrollments
+- learning_progress
+- topic_mastery
+- adaptive_learning_history
+- revision_schedule
+
+### Student profile and skill twin
+- student_profiles
+- academic_records
+- student_skills
+- skill_evidence
+- skill_assessments
+- skill_verifications
+- digital_credentials
+- career_goals
+- career_roadmaps
+
+### AI
+- ai_conversations
+- ai_messages
+- ai_usage_logs
+- ai_prompt_versions
+- ai_evaluation_results
+- knowledge_documents
+- knowledge_embeddings
+
+### Practical learning
+- simulations
+- simulation_scenarios
+- simulation_attempts
+- virtual_labs
+- lab_submissions
+- project_templates
+- student_projects
+- project_evaluations
+
+### Recruitment
+- companies
+- recruiters
+- job_listings
+- job_requirements
+- eligibility_rules
+- job_applications
+- placement_drives
+- recruitment_stages
+- interview_sessions
+- placement_offers
+- offer_status_history
+
+### Career and social ecosystem
+- resumes
+- portfolios
+- internships
+- alumni_profiles
+- mentors
+- mentorship_requests
+- discussions
+- teams
+- collaboration_projects
+- daily_challenges
+- challenge_attempts
+
+### SaaS
+- subscriptions
+- plans
+- invoices
+- payments
+- usage_quotas
+- integrations
+- webhooks
+- notifications
+- support_tickets
+- audit_logs
+
+Add appropriate:
+- Primary keys.
+- Foreign keys.
+- Indexes.
+- Constraints.
+- Tenant identifiers.
+- Timestamps.
+- Soft deletion where appropriate.
+- Audit records.
+
+Document the entity relationship diagram and database migration strategy.
+
+---
+
+# PART 32 — API ARCHITECTURE
+
+Create documented API endpoints grouped by domain:
+
+- Authentication API.
+- User API.
+- College API.
+- Branch API.
+- Syllabus API.
+- Subject API.
+- Topic API.
+- Question Bank API.
+- Assessment API.
+- Adaptive Learning API.
+- AI Copilot API.
+- Skill Twin API.
+- Credential API.
+- Simulation API.
+- Career API.
+- Resume API.
+- Job API.
+- Eligibility API.
+- Placement API.
+- Recruiter API.
+- Alumni API.
+- Analytics API.
+- Subscription API.
+- Billing API.
+- Notification API.
+- Admin API.
+
+Implement:
+- Request validation.
+- Authentication.
+- Authorization.
+- Tenant checks.
+- Pagination.
+- Filtering.
+- Sorting.
+- Rate limits.
+- Error responses.
+- API versioning.
+- OpenAPI documentation.
+
+---
+
+# PART 33 — USER INTERFACE AND DESIGN SYSTEM
+
+Create a premium, modern, enterprise-grade SaaS design.
+
+The product must feel like a serious professional platform, not a basic student project.
+
+### Visual direction
+
+- Modern dashboard layout.
+- Professional typography.
+- Consistent spacing.
+- Premium cards.
+- Refined charts.
+- Accessible color contrast.
+- Clean navigation.
+- Smooth interactions.
+- Light mode.
+- Dark mode.
+- Responsive design.
+
+Use a cohesive visual system with deep navy, blue, violet and neutral surfaces, with restrained accent colors.
+
+Avoid excessive gradients, unnecessary animations and clutter.
+
+### Public website
+
+Create:
+1. Home.
+2. Features.
+3. For Students.
+4. For Colleges.
+5. For Recruiters.
+6. Engineering Branches.
+7. AI Features.
+8. Pricing.
+9. About.
+10. Contact.
+11. Documentation.
+12. Login.
+13. Register.
+
+### Student application
+
+Create:
+1. Student onboarding.
+2. Profile setup.
+3. Student dashboard.
+4. Learning dashboard.
+5. Branch dashboard.
+6. Semester dashboard.
+7. Subject page.
+8. Topic page.
+9. Question bank.
+10. Practice test.
+11. Mock examination.
+12. Aptitude centre.
+13. Programming practice.
+14. Project hub.
+15. Virtual labs.
+16. AI Placement Copilot.
+17. Career Council.
+18. Skill Digital Twin.
+19. Skill Passport.
+20. Career roadmap.
+21. Skill gap analysis.
+22. Company simulator.
+23. Interview lab.
+24. Resume builder.
+25. Job portal.
+26. Internship portal.
+27. Application tracker.
+28. Alumni network.
+29. Mentorship.
+30. Daily challenges.
+31. Analytics.
+32. Notifications.
+33. Settings.
+
+### College administration
+
+Create:
+- College overview.
+- Department management.
+- Branch management.
+- Faculty management.
+- Student management.
+- Syllabus management.
+- Question bank management.
+- Course management.
+- Placement drives.
+- Eligibility management.
+- Analytics.
+- Reports.
+- Branding.
+- Permissions.
+- Integrations.
+
+### Placement officer
+
+Create:
+- Placement overview.
+- Company management.
+- Drive creation.
+- Candidate eligibility.
+- Shortlisting.
+- Interview scheduling.
+- Offer management.
+- Student intervention.
+- Reports.
+
+### Recruiter
+
+Create:
+- Company dashboard.
+- Job creation.
+- Requirements.
+- Candidate search.
+- Candidate profiles.
+- Assessment creation.
+- Interview management.
+- Recruitment pipeline.
+- Hiring analytics.
+
+### Super Admin
+
+Create:
+- Platform dashboard.
+- Tenant management.
+- Subscription management.
+- User management.
+- AI management.
+- Content management.
+- Usage monitoring.
+- Billing.
+- Security.
+- Audit logs.
+- System monitoring.
+
+---
+
+# PART 34 — SECURITY, PRIVACY AND GOVERNANCE
+
+Implement:
+
+- Secure authentication.
+- MFA.
+- Role-based access.
+- Tenant isolation.
+- Server-side permission checks.
+- Encryption in transit.
+- Encryption at rest.
+- Secure session management.
+- SQL injection protection.
+- XSS protection.
+- CSRF protection where applicable.
+- File upload validation.
+- Rate limiting.
+- API security.
+- Audit logs.
+- Backup and recovery.
+- Consent management.
+- Data export.
+- Data deletion.
+- Retention controls.
+
+Design for applicable Indian data protection laws and relevant international privacy requirements.
+
+Treat academic records, personal details, resumes and interview data as sensitive.
+
+Provide students control over profile visibility and employer data sharing.
+
+Do not make automated AI hiring decisions the sole basis for rejection or selection.
+
+---
+
+# PART 35 — TESTING AND QUALITY ASSURANCE
+
+Create comprehensive automated testing.
+
+Test:
+
+- Registration.
+- Login.
+- Role permissions.
+- Tenant isolation.
+- Student onboarding.
+- Branch selection.
+- Syllabus navigation.
+- Subject management.
+- Topic management.
+- Question bank.
+- Question evaluation.
+- Numerical calculations.
+- Adaptive learning.
+- AI responses.
+- Skill analysis.
+- Eligibility checks.
+- Job matching.
+- Recruitment workflow.
+- Resume uploads.
+- Credential verification.
+- Subscription management.
+- Billing.
+- Analytics.
+- Notifications.
+
+Create demonstration colleges with different branches.
+
+Verify that:
+- A Mechanical student sees Mechanical academic content.
+- An ECE student sees ECE content.
+- A Civil student sees Civil content.
+- Every branch has access to common placement preparation.
+- Cross-tenant access is blocked.
+- Unauthorized users cannot access private records.
+
+Use unit tests, integration tests and end-to-end browser tests.
+
+---
+
+# PART 36 — DEPLOYMENT AND OPERATIONS
+
+Prepare the platform for production deployment.
+
+Include:
+- Development environment.
+- Staging environment.
+- Production environment.
+- Environment variable templates.
+- Database migrations.
+- Seed scripts.
+- CI/CD.
+- Automated testing.
+- Error monitoring.
+- Application logging.
+- Performance monitoring.
+- Backup strategy.
+- Database recovery.
+- CDN and object storage.
+- Deployment documentation.
+
+Optimize for:
+- Large question banks.
+- Multiple concurrent assessments.
+- Many simultaneous student users.
+- AI API limits.
+- Background jobs.
+- Large file uploads.
+- Low-bandwidth connections.
+
+Support offline learning with cached materials and synchronization where practical.
+
+---
+
+# PART 37 — DEVELOPMENT EXECUTION ROADMAP
+
+Implement in controlled phases.
+
+## PHASE 0 — DISCOVERY AND ARCHITECTURE
+
+Before coding:
+
+1. Inspect the existing repository.
+2. Identify available technologies.
+3. Check existing files and dependencies.
+4. Prepare a complete architecture.
+5. Prepare database design.
+6. Prepare module dependency map.
+7. Prepare development roadmap.
+8. Identify external integrations.
+9. Identify environment variables.
+10. Create project documentation.
+
+Do not destroy or unnecessarily replace existing working code.
+
+## PHASE 1 — FOUNDATION
+
+Implement:
+- Project setup.
+- Design system.
+- Authentication.
+- Roles.
+- Tenant architecture.
+- Database.
+- Public landing page.
+- Student onboarding.
+- College administration.
+
+## PHASE 2 — ACADEMIC ECOSYSTEM
+
+Implement:
+- All branch structures.
+- University configuration.
+- Semester management.
+- Subject hierarchy.
+- Unit/topic/subtopic hierarchy.
+- Learning materials.
+- Question bank.
+- Question imports.
+- Faculty approval.
+- Assessments.
+- Student progress.
+
+## PHASE 3 — PLACEMENT PREPARATION
+
+Implement:
+- Aptitude.
+- Reasoning.
+- Verbal ability.
+- Technical assessments.
+- Programming practice.
+- Resume builder.
+- Interview preparation.
+- Company preparation.
+- Project hub.
+
+## PHASE 4 — AI INTELLIGENCE
+
+Implement:
+- AI Placement Copilot.
+- Career Council.
+- Adaptive learning.
+- Skill gap detector.
+- Engineering Skill Digital Twin.
+- Career roadmap.
+- AI question explanations.
+- AI content review.
+
+## PHASE 5 — INDUSTRY ECOSYSTEM
+
+Implement:
+- IndustrySim.
+- Virtual labs.
+- Project marketplace.
+- Micro-internships.
+- Skill Passport.
+- Alumni network.
+- Mentorship.
+- Cross-college collaboration.
+
+## PHASE 6 — RECRUITMENT
+
+Implement:
+- Company portal.
+- Job listings.
+- Eligibility engine.
+- Placement simulator.
+- Recruiter search.
+- Application tracking.
+- Placement officer autopilot.
+- Offer management.
+
+## PHASE 7 — ENTERPRISE SAAS
+
+Implement:
+- Multi-college management.
+- White-label.
+- Subscription plans.
+- Billing.
+- API integrations.
+- Webhooks.
+- Enterprise security.
+- Institutional analytics.
+- Platform operations centre.
+
+## PHASE 8 — ADVANCED INTELLIGENCE
+
+Implement:
+- Curriculum Intelligence.
+- TalentGraph.
+- Career Future Intelligence.
+- Placement Outcome Intelligence.
+- Early-Warning System.
+- Career Resilience.
+- Multilingual AI.
+- Advanced analytics.
+
+## PHASE 9 — PRODUCTION READINESS
+
+Implement:
+- Security testing.
+- Performance optimization.
+- Accessibility.
+- End-to-end testing.
+- Deployment.
+- Documentation.
+- Backup and recovery.
+- Production monitoring.
+
+---
+
+# PART 38 — NON-NEGOTIABLE BUILD RULES
+
+1. Do not stop after creating a landing page.
+2. Do not create only static dashboards.
+3. Do not create fake functional buttons.
+4. Do not use hardcoded dashboard statistics.
+5. Do not leave major branches empty.
+6. Do not treat every engineering student as a CSE student.
+7. Do not put the entire application in one giant component.
+8. Do not create unnecessary microservices.
+9. Do not expose API keys.
+10. Do not use fake job listings as live data.
+11. Do not claim AI-generated questions are verified.
+12. Do not claim credentials are verified without actual verification.
+13. Do not make unsupported career predictions.
+14. Do not make automated high-stakes recruitment decisions.
+15. Do not ignore mobile responsiveness.
+16. Do not ignore tenant security.
+17. Do not skip database migrations.
+18. Do not skip testing.
+19. Do not use placeholder content to falsely indicate complete functionality.
+20. Do not claim features are finished before testing them.
+
+If an external service or API is unavailable, implement a clean integration interface and explain what credentials or configuration are needed.
+
+Use realistic demonstration data, clearly labelled as demonstration data.
+
+---
+
+# PART 39 — FINAL ACCEPTANCE CRITERIA
+
+The platform will only be considered successful when these complete journeys work.
+
+### Student journey
+
+1. Student registers.
+2. Student selects college.
+3. Student selects university and branch.
+4. Student selects academic regulation and semester.
+5. Student sees the correct subjects.
+6. Student opens a subject.
+7. Student navigates units, topics and subtopics.
+8. Student studies learning material.
+9. Student practices questions.
+10. Student receives correct answers and explanations.
+11. System records performance.
+12. Adaptive engine identifies weak concepts.
+13. AI recommends a learning plan.
+14. Student completes a project.
+15. Student receives skill evidence.
+16. Student creates a resume.
+17. Student completes a mock interview.
+18. Student checks job eligibility.
+19. Student applies for opportunities.
+20. Student tracks recruitment progress.
+
+### College journey
+
+1. Super Admin creates a college tenant.
+2. College Admin configures institution.
+3. Branches and departments are created.
+4. Faculty and students are added.
+5. Syllabus is configured.
+6. Faculty manage question banks.
+7. Placement Officer publishes a drive.
+8. Eligibility engine identifies matching students.
+9. Students are notified.
+10. Recruitment stages are tracked.
+11. Offers are recorded.
+12. College analytics are generated.
+
+### Recruiter journey
+
+1. Recruiter creates company profile.
+2. Recruiter publishes job.
+3. Recruiter defines requirements.
+4. Eligible candidates are identified.
+5. Recruiter searches authorized talent profiles.
+6. Recruiter reviews evidence.
+7. Recruiter invites candidates.
+8. Recruiter manages interviews.
+9. Recruiter updates hiring outcome.
+
+### SaaS journey
+
+1. Super Admin creates subscription plan.
+2. College registers.
+3. College starts subscription.
+4. Tenant is provisioned.
+5. Usage is tracked.
+6. Permissions are enforced.
+7. Billing is recorded.
+8. Plan changes work correctly.
+9. Data remains isolated.
+10. Admin can monitor usage and system health.
+
+---
+
+# PART 40 — REQUIRED FINAL DELIVERABLES
+
+Deliver:
+
+1. Fully functional responsive frontend.
+2. Fully functional backend.
+3. Database schema.
+4. Database migrations.
+5. Authentication.
+6. Role management.
+7. Multi-tenant architecture.
+8. All engineering branch structures.
+9. Subject and syllabus management.
+10. Complete question bank framework.
+11. Initial branch-wise seed questions.
+12. Assessment engine.
+13. Adaptive learning.
+14. AI Placement Copilot.
+15. Career Council.
+16. Engineering Skill Digital Twin.
+17. Skill Passport.
+18. IndustrySim.
+19. Virtual lab integrations.
+20. Career intelligence.
+21. Resume builder.
+22. Interview lab.
+23. Placement simulator.
+24. Eligibility engine.
+25. Job portal.
+26. Micro-internship marketplace.
+27. Alumni network.
+28. TalentGraph.
+29. Placement officer dashboard.
+30. Recruiter dashboard.
+31. College analytics.
+32. Subscription management.
+33. Billing integration.
+34. Multilingual support.
+35. Security controls.
+36. Automated tests.
+37. API documentation.
+38. ER diagram.
+39. Architecture documentation.
+40. Environment variable template.
+41. Setup instructions.
+42. Deployment guide.
+43. Admin guide.
+44. Student guide.
+
+---
+
+# FINAL INSTRUCTION TO ANTIGRAVITY
+
+You are building PlacementPro AI as a serious commercial SaaS product.
+
+Think like an experienced technology company building a long-term product, not a developer completing a college project.
+
+The platform must be:
+- Modular.
+- Scalable.
+- Secure.
+- Maintainable.
+- AI-enabled.
+- Engineering-first.
+- Multi-tenant.
+- Mobile-responsive.
+- Enterprise-ready.
+
+Use the complete specification above as the source of truth.
+
+First inspect the environment and produce the architecture, implementation plan, database design and module dependency map.
+
+Then start Phase 1 and implement working features.
+
+Continue phase by phase, running tests after each phase.
+
+Maintain a PROJECT_STATUS.md document with:
+- Completed modules.
+- Partially completed modules.
+- Pending modules.
+- Known issues.
+- Test results.
+- External dependencies.
+- Next implementation tasks.
+
+Maintain a PRODUCT_REQUIREMENTS.md document and update it as the application develops.
+
+Maintain a DATABASE_SCHEMA.md document and architecture documentation.
+
+If implementation context or session limits are reached, save the exact progress and next steps so development can resume without losing the project architecture.
+
+Do not silently skip features.
+
+Do not mark a module complete because its screen exists. A module is complete only when its database, APIs, permissions, UI, business logic and tests are working.
+
+**THE ULTIMATE VISION:**
+
+PlacementPro AI must become the unified AI-powered Engineering Career Operating System connecting students, universities, industry, recruiters, mentors and verified professional skills.
+
+Every student, from every engineering branch, must be able to move from academic learning to practical expertise, from practical expertise to verified employability, and from employability to a successful career.
+
+Build this as a real product with measurable value for students, colleges and employers.
+
+START WITH PHASE 0: INSPECT THE ENVIRONMENT, PREPARE THE ARCHITECTURE AND IMPLEMENT THE FOUNDATION.

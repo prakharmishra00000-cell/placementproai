@@ -1,0 +1,570 @@
+// PlacementPro AI - Prisma Schema
+// Multi-tenant EdTech SaaS for engineering career readiness
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// ============== IDENTITY & TENANCY ==============
+
+model User {
+  id            String   @id @default(cuid())
+  email         String   @unique
+  passwordHash  String
+  name          String
+  role          String   @default("STUDENT") // STUDENT | SUPER_ADMIN | COLLEGE_ADMIN | PLACEMENT_OFFICER | FACULTY | RECRUITER | ALUMNI | SUPPORT
+  collegeId     String?
+  status        String   @default("ACTIVE") // ACTIVE | SUSPENDED | PENDING
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  college       College?  @relation(fields: [collegeId], references: [id])
+  studentProfile StudentProfile?
+  recruiter     Recruiter?
+  alumniProfile AlumniProfile?
+  facultyProfile FacultyProfile?
+  aiConversations AiConversation[]
+  attempts      QuestionAttempt[]
+  testSessions  TestSession[]
+  resumes       Resume[]
+  applications  JobApplication[]
+  challenges    ChallengeAttempt[]
+  simulations   SimulationAttempt[]
+  notifications Notification[]
+  auditLogs     AuditLog[]
+  mentorshipRequestsAsMentee MentorshipRequest[] @relation("MenteeRequests")
+}
+
+model College {
+  id            String   @id @default(cuid())
+  name          String
+  shortName     String
+  domain        String   @unique
+  city          String
+  state         String
+  country       String   @default("India")
+  logoUrl       String?
+  primaryColor  String   @default("#0f172a")
+  plan          String   @default("FREE") // FREE | STARTER | PROFESSIONAL | ENTERPRISE
+  status        String   @default("ACTIVE")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  users         User[]
+  departments   Department[]
+  branches      CollegeBranch[]
+  placementDrives PlacementDrive[]
+  students      StudentProfile[]
+  syllabusVersions SyllabusVersion[]
+}
+
+model Department {
+  id          String   @id @default(cuid())
+  collegeId   String
+  name        String
+  head        String?
+  createdAt   DateTime @default(now())
+  college     College  @relation(fields: [collegeId], references: [id])
+  branches    CollegeBranch[]
+}
+
+// ============== ACADEMIC STRUCTURE ==============
+
+model Branch {
+  id          String   @id @default(cuid())
+  code        String   @unique // CSE, ECE, ME, CE ...
+  name        String
+  category    String   @default("ENGINEERING") // ENGINEERING | IT | SCIENCE
+  description String?
+  icon        String?
+  totalSemesters Int   @default(8)
+  isActive    Boolean  @default(true)
+  collegeBranches CollegeBranch[]
+  subjects    Subject[]
+  questions   Question[]
+  simulations SimulationScenario[]
+  projects    ProjectListing[]
+  studentProfiles StudentProfile[]
+}
+
+model CollegeBranch {
+  id          String  @id @default(cuid())
+  collegeId   String
+  branchId    String
+  departmentId String?
+  intake       Int    @default(60)
+  isActive     Boolean @default(true)
+  college      College   @relation(fields: [collegeId], references: [id])
+  branch       Branch    @relation(fields: [branchId], references: [id])
+  department   Department? @relation(fields: [departmentId], references: [id])
+}
+
+model SyllabusVersion {
+  id          String   @id @default(cuid())
+  collegeId   String
+  branchId    String
+  regulation  String   // e.g. "R2021"
+  effectiveYear Int
+  isActive    Boolean  @default(true)
+  college     College  @relation(fields: [collegeId], references: [id])
+  subjects    Subject[]
+}
+
+model Subject {
+  id           String   @id @default(cuid())
+  branchId     String
+  syllabusVersionId String?
+  code         String
+  name         String
+  semester     Int
+  credits      Int      @default(4)
+  category     String   @default("CORE") // CORE | ELECTIVE | LAB | PROJECT
+  isCommon     Boolean  @default(false) // true for aptitude/verbal common to all
+  description  String?
+  branch       Branch   @relation(fields: [branchId], references: [id])
+  syllabusVersion SyllabusVersion? @relation(fields: [syllabusVersionId], references: [id])
+  units        Unit[]
+  questions    Question[]
+  enrollments  StudentEnrollment[]
+}
+
+model Unit {
+  id          String   @id @default(cuid())
+  subjectId   String
+  number      Int
+  title       String
+  description String?
+  subject     Subject  @relation(fields: [subjectId], references: [id])
+  topics      Topic[]
+}
+
+model Topic {
+  id          String   @id @default(cuid())
+  unitId      String
+  name        String
+  description String?
+  unit        Unit     @relation(fields: [unitId], references: [id])
+  subtopics   Subtopic[]
+  questions   Question[]
+}
+
+model Subtopic {
+  id          String   @id @default(cuid())
+  topicId     String
+  name        String
+  topic       Topic    @relation(fields: [topicId], references: [id])
+  questions    Question[]
+}
+
+// ============== QUESTION BANK ==============
+
+model Question {
+  id            String   @id @default(cuid())
+  subjectId     String
+  topicId       String?
+  subtopicId    String?
+  branchId     String?
+  type          String   @default("MCQ") // MCQ | MULTI_CORRECT | NUMERICAL | FILL | TRUE_FALSE | SHORT | LONG | CODING
+  difficulty    String   @default("EASY") // BEGINNER | EASY | MEDIUM | HARD | EXPERT
+  text          String
+  options       String   // JSON array
+  correctAnswer String   // JSON: index, indices, value
+  explanation   String?
+  marks         Int      @default(1)
+  negativeMarks Float    @default(0)
+  expectedTimeSec Int    @default(120)
+  tags          String?
+  source        String   @default("FACULTY")
+  verificationStatus String @default("DRAFT") // DRAFT | REVIEWED | VERIFIED
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+
+  subject       Subject  @relation(fields: [subjectId], references: [id])
+  topic         Topic?   @relation(fields: [topicId], references: [id])
+  subtopic      Subtopic? @relation(fields: [subtopicId], references: [id])
+  branch        Branch?  @relation(fields: [branchId], references: [id])
+  attempts      QuestionAttempt[]
+}
+
+// ============== STUDENT PROFILE & SKILLS ==============
+
+model StudentProfile {
+  id              String   @id @default(cuid())
+  userId          String   @unique
+  collegeId       String
+  branchId        String?
+  specialization  String?
+  semester        Int      @default(1)
+  regulation      String   @default("R2021")
+  cgpa            Float    @default(0)
+  percentage      Float    @default(0)
+  activeBacklogs  Int      @default(0)
+  historyBacklogs Int      @default(0)
+  graduationYear  Int
+  careerGoal      String?  // SOFTWARE | CORE | GOVT | GATE | HIGHER_EDU | STARTUP
+  targetJob       String?
+  linkedinUrl     String?
+  githubUrl       String?
+  bio             String?
+  optedIn         Boolean  @default(true) // for reverse hiring
+  language        String   @default("en") // en | hi | or | bn | ta | te | kn | ml | mr | gu
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  user            User     @relation(fields: [userId], references: [id])
+  college         College  @relation(fields: [collegeId], references: [id])
+  branch          Branch?  @relation(fields: [branchId], references: [id])
+  enrollments     StudentEnrollment[]
+  skills          StudentSkill[]
+  credentials     DigitalCredential[]
+  roadmaps        CareerRoadmap[]
+  skillGaps       SkillGap[]
+}
+
+model StudentEnrollment {
+  id          String   @id @default(cuid())
+  studentId   String
+  subjectId   String
+  enrolledAt  DateTime @default(now())
+  progress    Float    @default(0) // 0..1
+  mastery     Float    @default(0) // 0..1
+
+  student     StudentProfile @relation(fields: [studentId], references: [id])
+  subject     Subject        @relation(fields: [subjectId], references: [id])
+}
+
+model StudentSkill {
+  id           String   @id @default(cuid())
+  studentId    String
+  name         String
+  category     String   // TECHNICAL | PROGRAMMING | SOFT | TOOL | DOMAIN
+  proficiency  Float    @default(0) // 0..1
+  evidence     String?
+  verifiedBy   String?  // ASSESSMENT | FACULTY | EMPLOYER | SELF
+  evaluatedAt  DateTime @default(now())
+  student      StudentProfile @relation(fields: [studentId], references: [id])
+}
+
+model DigitalCredential {
+  id           String   @id @default(cuid())
+  studentId    String
+  title        String
+  issuer       String
+  skill        String
+  evidenceUrl  String?
+  issuedAt     DateTime @default(now())
+  expiresAt    DateTime?
+  signature    String
+  revoked      Boolean  @default(false)
+  student      StudentProfile @relation(fields: [studentId], references: [id])
+}
+
+model CareerRoadmap {
+  id           String   @id @default(cuid())
+  studentId    String
+  goal         String
+  milestones   String   // JSON
+  progress     Float    @default(0)
+  createdAt    DateTime @default(now())
+  student      StudentProfile @relation(fields: [studentId], references: [id])
+}
+
+model SkillGap {
+  id           String   @id @default(cuid())
+  studentId    String
+  targetRole   String
+  requiredSkills String // JSON array
+  existingSkills String // JSON array
+  missingSkills String // JSON array
+  readinessPct Float
+  createdAt    DateTime @default(now())
+  student      StudentProfile @relation(fields: [studentId], references: [id])
+}
+
+// ============== ASSESSMENTS & ATTEMPTS ==============
+
+model TestSession {
+  id           String   @id @default(cuid())
+  userId       String
+  subjectId    String?
+  type         String   // PRACTICE | MOCK | APTITUDE | COMPANY_SIM
+  questionIds   String   // JSON array of question ids
+  answers      String   // JSON {questionId: answer}
+  score        Float    @default(0)
+  maxScore     Float    @default(0)
+  accuracy     Float    @default(0)
+  durationSec   Int      @default(0)
+  startedAt    DateTime @default(now())
+  completedAt  DateTime?
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+model QuestionAttempt {
+  id           String   @id @default(cuid())
+  userId       String
+  questionId   String
+  answer       String
+  isCorrect    Boolean
+  timeSec      Int      @default(0)
+  attemptedAt  DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  question     Question @relation(fields: [questionId], references: [id])
+}
+
+// ============== AI ==============
+
+model AiConversation {
+  id           String   @id @default(cuid())
+  userId       String
+  agent        String   @default("COPILOT") // COPILOT | TUTOR | INTERVIEW_COACH | RESUME_EXPERT | CAREER_STRATEGIST
+  title        String?
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  messages     AiMessage[]
+}
+
+model AiMessage {
+  id           String   @id @default(cuid())
+  conversationId String
+  role         String   // USER | ASSISTANT | SYSTEM
+  content      String
+  createdAt    DateTime @default(now())
+  conversation AiConversation @relation(fields: [conversationId], references: [id])
+}
+
+// ============== SIMULATIONS / VIRTUAL LABS ==============
+
+model SimulationScenario {
+  id           String   @id @default(cuid())
+  branchCode   String
+  title        String
+  description  String
+  objectives   String
+  constraints  String
+  rubric       String
+  difficulty   String   @default("MEDIUM")
+  branch       Branch?  @relation(fields: [branchCode], references: [code])
+  attempts     SimulationAttempt[]
+}
+
+model SimulationAttempt {
+  id           String   @id @default(cuid())
+  userId       String
+  scenarioId   String
+  submission   String
+  score        Float    @default(0)
+  feedback     String?
+  completedAt  DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  scenario     SimulationScenario @relation(fields: [scenarioId], references: [id])
+}
+
+// ============== RECRUITMENT ==============
+
+model Company {
+  id           String   @id @default(cuid())
+  name         String
+  industry     String
+  website      String?
+  logoUrl      String?
+  description  String?
+  verified     Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  recruiters   Recruiter[]
+  jobs         JobListing[]
+  drives       PlacementDrive[]
+}
+
+model Recruiter {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  companyId    String
+  position     String?
+  user         User     @relation(fields: [userId], references: [id])
+  company      Company  @relation(fields: [companyId], references: [id])
+}
+
+model JobListing {
+  id           String   @id @default(cuid())
+  companyId    String
+  title        String
+  description  String
+  location     String
+  jobType      String   @default("FULL_TIME") // FULL_TIME | INTERNSHIP | APPRENTICESHIP | CONTRACT
+  experienceYears Float @default(0)
+  salaryMin    Int?
+  salaryMax    Int?
+  requiredBranches String // JSON array of branch codes
+  minCgpa      Float    @default(6.0)
+  maxBacklogs  Int      @default(0)
+  requiredSkills String // JSON array
+  postedAt     DateTime @default(now())
+  expiresAt    DateTime?
+  status       String   @default("OPEN") // OPEN | CLOSED | DRAFT
+  source       String   @default("RECRUITER")
+  company      Company  @relation(fields: [companyId], references: [id])
+  applications JobApplication[]
+  drives       PlacementDrive[]
+}
+
+model JobApplication {
+  id           String   @id @default(cuid())
+  userId       String
+  jobId        String
+  status       String   @default("APPLIED") // APPLIED | SHORTLISTED | INTERVIEW | OFFER | REJECTED | WITHDRAWN
+  appliedAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id])
+  job          JobListing @relation(fields: [jobId], references: [id])
+}
+
+model PlacementDrive {
+  id           String   @id @default(cuid())
+  collegeId    String
+  companyId    String
+  jobId        String?
+  title        String
+  description  String
+  visitDate    DateTime?
+  status       String   @default("SCHEDULED") // SCHEDULED | ONGOING | COMPLETED | CANCELLED
+  createdAt    DateTime @default(now())
+  college      College  @relation(fields: [collegeId], references: [id])
+  company      Company  @relation(fields: [companyId], references: [id])
+  job          JobListing? @relation(fields: [jobId], references: [id])
+}
+
+// ============== RESUMES ==============
+
+model Resume {
+  id           String   @id @default(cuid())
+  userId       String
+  title        String
+  template     String   @default("ATS_CLASSIC")
+  data         String   // JSON: summary, education, experience, projects, skills, certifications
+  isPrimary    Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+// ============== PROJECTS / MICRO-INTERNSHIPS ==============
+
+model ProjectListing {
+  id           String   @id @default(cuid())
+  title        String
+  description  String
+  companyId    String?
+  branchCode   String
+  requiredSkills String // JSON array
+  deliverables String
+  timeline     String
+  evaluationCriteria String
+  mentor       String?
+  status       String   @default("OPEN")
+  createdAt    DateTime @default(now())
+  branch       Branch?  @relation(fields: [branchCode], references: [code])
+}
+
+// ============== ALUMNI / MENTORS ==============
+
+model AlumniProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  collegeId    String?
+  branchCode   String
+  graduationYear Int
+  currentCompany String?
+  currentRole   String?
+  industry      String?
+  bio           String?
+  availableForMentorship Boolean @default(true)
+  user          User     @relation(fields: [userId], references: [id])
+  mentorshipRequests MentorshipRequest[] @relation("MenteeRequests")
+}
+
+model FacultyProfile {
+  id           String   @id @default(cuid())
+  userId       String   @unique
+  collegeId    String?
+  department    String?
+  designation   String   @default("Assistant Professor")
+  user          User     @relation(fields: [userId], references: [id])
+}
+
+model MentorshipRequest {
+  id           String   @id @default(cuid())
+  studentUserId String
+  alumniId      String
+  message       String
+  status        String   @default("PENDING") // PENDING | ACCEPTED | DECLINED | COMPLETED
+  createdAt     DateTime @default(now())
+  student       User     @relation("MenteeRequests", fields: [studentUserId], references: [id])
+  alumni        AlumniProfile @relation("MenteeRequests", fields: [alumniId], references: [id])
+}
+
+// ============== DAILY CHALLENGES / GAMIFICATION ==============
+
+model DailyChallenge {
+  id           String   @id @default(cuid())
+  date         String   @unique // YYYY-MM-DD
+  category     String   // APTITUDE | REASONING | VERBAL | PROGRAMMING | CORE | INTERVIEW | COMMUNICATION
+  title        String
+  description  String
+  question     String
+  answer       String
+  points       Int      @default(10)
+  attempts     ChallengeAttempt[]
+}
+
+model ChallengeAttempt {
+  id           String   @id @default(cuid())
+  userId       String
+  challengeId  String
+  submittedAnswer String
+  isCorrect    Boolean
+  earnedPoints Int      @default(0)
+  attemptedAt  DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+  challenge     DailyChallenge @relation(fields: [challengeId], references: [id])
+}
+
+// ============== NOTIFICATIONS ==============
+
+model Notification {
+  id           String   @id @default(cuid())
+  userId       String
+  title        String
+  message      String
+  type         String   @default("INFO") // INFO | SUCCESS | WARNING | JOB | INTERVIEW | OFFER
+  read         Boolean  @default(false)
+  createdAt    DateTime @default(now())
+  user         User     @relation(fields: [userId], references: [id])
+}
+
+// ============== SaaS ==============
+
+model SubscriptionPlan {
+  id           String   @id @default(cuid())
+  code         String   @unique
+  name         String
+  tier         String   // FREE | STUDENT_PREMIUM | COLLEGE_STARTER | COLLEGE_PROFESSIONAL | COLLEGE_ENTERPRISE | RECRUITER
+  priceMonthly Int      @default(0)
+  priceYearly  Int      @default(0)
+  features     String   // JSON array
+  isActive     Boolean  @default(true)
+}
+
+model AuditLog {
+  id           String   @id @default(cuid())
+  userId       String?
+  action       String
+  resource     String
+  details      String?
+  createdAt    DateTime @default(now())
+  user         User?    @relation(fields: [userId], references: [id])
+}
