@@ -69,7 +69,7 @@ export const useApp = create<AppState>()(
       view: 'landing',
       viewParams: null,
       language: 'en',
-      theme: 'light',
+      theme: 'dark',
       setUser: (u) => set({ user: u }),
       setProfile: (p) => set({ profile: p }),
       setView: (v, params = null) => set({ view: v, viewParams: params }),
